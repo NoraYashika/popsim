@@ -1,0 +1,40 @@
+#include "./MainWindow.hpp"
+#include <iostream>
+
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
+    ui->setupUi(this);
+
+    // Example: connect a button click
+    // connect(ui->myButton, &QPushButton::clicked, this, &MainWindow::someSlot);
+    connect(ui->btn_advance_tick       , &QPushButton::clicked, this, &MainWindow::advanceTick     );
+    connect(ui->btn_inspect_world      , &QPushButton::clicked, this, &MainWindow::inspectWorld    );
+    connect(ui->btn_pause_autoadvance  , &QPushButton::clicked, this, &MainWindow::pauseAutoAdvance);
+    connect(ui->btn_population_inspect , &QPushButton::clicked, this, &MainWindow::POV_inspect     );
+    connect(ui->btn_refresh            , &QPushButton::clicked, this, &MainWindow::EOV_refresh     );
+    connect(ui->btn_settings           , &QPushButton::clicked, this, &MainWindow::settings        );
+    connect(ui->btn_settlements_inspect, &QPushButton::clicked, this, &MainWindow::SOV_inspect     );
+    connect(ui->btn_showDetails        , &QPushButton::clicked, this, &MainWindow::EOV_showDetails );
+}
+
+MainWindow::~MainWindow(){
+    delete ui;
+}
+
+// function definitions
+void MainWindow::advanceTick(){}
+
+void MainWindow::inspectWorld(){}
+
+void MainWindow::autoAdvance(){}
+
+void MainWindow::pauseAutoAdvance(){}
+
+void MainWindow::settings(){}
+
+void MainWindow::EOV_refresh(){}
+
+void MainWindow::EOV_showDetails(){}
+
+void MainWindow::SOV_inspect(){}
+
+void MainWindow::POV_inspect(){}
