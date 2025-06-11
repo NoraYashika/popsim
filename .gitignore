@@ -5,3 +5,4 @@
 *.bat
 .vscode
 build
+cmake_conf_cygwin.sh
