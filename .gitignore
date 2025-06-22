@@ -5,4 +5,5 @@
 *.bat
 .vscode
 build
-cmake_conf_cygwin.sh
+deploy
+deploy.ps1

@@ -21,20 +21,38 @@ MainWindow::~MainWindow(){
 }
 
 // function definitions
-void MainWindow::advanceTick(){}
+void MainWindow::advanceTick(){
+    std::cout << "advance Tick" << std::endl;
+}
 
-void MainWindow::inspectWorld(){}
+void MainWindow::inspectWorld(){
+    std::cout << "inspect World" << std::endl;
+}
 
-void MainWindow::autoAdvance(){}
+void MainWindow::autoAdvance(){
+    std::cout << "auto Advance" << std::endl;
+}
 
-void MainWindow::pauseAutoAdvance(){}
+void MainWindow::pauseAutoAdvance(){
+    std::cout << "pause Auto Advance" << std::endl;
+}
 
-void MainWindow::settings(){}
+void MainWindow::settings(){
+    std::cout << "settings" << std::endl;
+}
 
-void MainWindow::EOV_refresh(){}
+void MainWindow::EOV_refresh(){
+    std::cout << "event overview refresh" << std::endl;
+}
 
-void MainWindow::EOV_showDetails(){}
+void MainWindow::EOV_showDetails(){
+    std::cout << "event overview show Details" << std::endl;
+}
 
-void MainWindow::SOV_inspect(){}
+void MainWindow::SOV_inspect(){
+    std::cout << "settlement overview inspect" << std::endl;
+}
 
-void MainWindow::POV_inspect(){}
+void MainWindow::POV_inspect(){
+    std::cout << "population overview inspect" << std::endl;
+}

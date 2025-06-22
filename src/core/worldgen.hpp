@@ -15,6 +15,7 @@ class WorldGen {
         int tickLimit;
         Date sim_startDate;
         Date sim_endDate;
+        int deltaTime;
         
     public:
         void createSeed(){
@@ -40,7 +41,7 @@ class WorldGen {
             }
 
 
-            World ret_val(name, seed, tickLimit);
+            World ret_val(name, seed, tickLimit, deltaTime);
             return ret_val;
         }
 };

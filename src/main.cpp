@@ -5,6 +5,7 @@
 #include <atomic>
 #include <iostream>
 #include <chrono>
+#include <boost/filesystem.hpp>
 
 #include "core/worldgen.hpp"
 #include "lib/archive.hpp"
@@ -25,6 +26,7 @@ void simengine(){
 }
 
 int main(int argc, char** argv){
+    std::cout << boost::filesystem::current_path() << std::endl;
     r = true;
     std::thread engine(simengine);
 
