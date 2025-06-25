@@ -9,6 +9,7 @@
 
 #include "core/worldgen.hpp"
 #include "lib/archive.hpp"
+#include "lib/fs.hpp"
 #include "lib/rng.hpp"
 #include "lib/world.hpp"
 #include "lib/ui/windows/MainWindow.hpp"
@@ -16,6 +17,12 @@
 using namespace std::chrono_literals;
 
 std::atomic_bool r = false;
+boost::filesystem::path homepath = boost::filesystem::current_path();
+
+void init(){
+    createFolder("data");
+    createFolder("civilians");
+}
 
 void simengine(){
     while (r.load()){
@@ -26,7 +33,7 @@ void simengine(){
 }
 
 int main(int argc, char** argv){
-    std::cout << boost::filesystem::current_path() << std::endl;
+    init();
     r = true;
     std::thread engine(simengine);
 
