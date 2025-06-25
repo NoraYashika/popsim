@@ -7,12 +7,19 @@ struct Date {
 };
 
 // Numeric Intervals
+template<typename T>
 struct Interval {
-    float min;
-    float max;
-};
+    T min;
+    T max;
 
-struct Interval {
-    int min;
-    int max;
+    Interval() = default;
+    Interval(T minVal, T maxVal) : min(minVal), max(maxVal) {}
+
+    bool contains(T val) const {
+        return val >= min && val <= max;
+    }
+
+    T range() const {
+        return max - min;
+    }
 };

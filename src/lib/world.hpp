@@ -6,13 +6,12 @@
 #include "events.hpp"
 
 class World {
-    private:
+    public:
         std::string name;
         uint64_t seed;
         Date sim_startDate;
         Date sim_endDate;
         
-    public:
         int deltaTime = 1;
         int tickcounter;
         int tickLimit;
@@ -24,12 +23,5 @@ class World {
             seed = _seed;
             tickLimit = _tickLimit;
             deltaTime = _deltaTime;
-        }
-
-        void tick(){
-            // advance by 1 tick
-            if (tickcounter < tickLimit){
-                tickcounter += deltaTime;
-            }
         }
 };

@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "encoder/sha256.hpp"
+#include "types.hpp"
 
 std::string generateUUIDv4(){
     std::random_device rd;
@@ -58,6 +59,29 @@ class RNG {
             } else {
                 return true;
             }
+        }
+
+        template<typename T>
+        T getInterval(const Interval<T>& interval){
+            if constexpr(std::is_integral<T>::value){
+                std::uniform_int_distribution<T> dist(interval.min, interval.max);
+                return dist(engine);
+            } else {
+                std::uniform_real_distribution<T> dist(interval.min, interval.max);
+                return dist(engine);
+            }
+        }
+
+        template<typename T>
+        int getInterval(Interval<int> interval){
+            std::uniform_int_distribution<int> dist(interval.min, interval.max);
+            return dist(engine);
+        }
+
+        template<typename T>
+        double getInterval(Interval<double> interval){
+            std::uniform_real_distribution<double> dist(interval.min, interval.max);
+            return dist(engine);
         }
 
         uint64_t getRaw(){

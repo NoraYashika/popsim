@@ -1,11 +1,12 @@
 #pragma once // 🖕 yes, even here
 
-#include <QtWidgets/QApplication>
-#include <thread>
 #include <atomic>
-#include <iostream>
-#include <chrono>
 #include <boost/filesystem.hpp>
+#include <chrono>
+#include <iostream>
+#include <QtWidgets/QApplication>
+#include <string>
+#include <thread>
 
 #include "core/worldgen.hpp"
 #include "lib/archive.hpp"
@@ -18,6 +19,7 @@ using namespace std::chrono_literals;
 
 std::atomic_bool r = false;
 boost::filesystem::path homepath = boost::filesystem::current_path();
+std::string homepath_str = homepath.string();
 
 void init(){
     createFolder("data");
