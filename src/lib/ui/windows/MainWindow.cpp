@@ -1,6 +1,10 @@
 #include "./MainWindow.hpp"
 #include <iostream>
 
+#include <QtWidgets/QFileDialog>
+
+#include "../../fs.hpp"
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
 
@@ -55,4 +59,21 @@ void MainWindow::SOV_inspect(){
 
 void MainWindow::POV_inspect(){
     std::cout << "population overview inspect" << std::endl;
+}
+
+void MainWindow::openPSWA(){
+    QString filePath = QFileDialog::getOpenFileName(this, "Open World Archive", "", "PopSim World Archive (*.pswa)");
+    if (!filePath.isEmpty()){
+        fs::path target = getHomePath();
+        target.append("")
+        PSWA::extractArchive(filePath.toStdString(), );
+    }
+}
+
+void MainWindow::savePSWA(){
+
+}
+
+void MainWindow::saveasPSWA(){
+
 }

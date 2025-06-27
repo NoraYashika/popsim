@@ -32,4 +32,9 @@ class MainWindow : public QMainWindow {
         // POV => Population OverView
         void POV_inspect();
 
+        // File operations
+        void openPSWA();
+        void savePSWA();
+        void saveasPSWA();
+
 };

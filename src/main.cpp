@@ -9,7 +9,6 @@
 #include <thread>
 
 #include "core/worldgen.hpp"
-#include "lib/archive.hpp"
 #include "lib/fs.hpp"
 #include "lib/rng.hpp"
 #include "lib/world.hpp"
@@ -18,12 +17,23 @@
 using namespace std::chrono_literals;
 
 std::atomic_bool r = false;
-boost::filesystem::path homepath = boost::filesystem::current_path();
+boost::filesystem::path homepath = getHomePath();
 std::string homepath_str = homepath.string();
 
 void init(){
-    createFolder("data");
-    createFolder("civilians");
+    const std::string folders[] = {
+        "/data",
+        "/data/temp"
+    };
+
+    for (std::string folder : folders){
+        std::cout << "Attempting to create folder: " << folder << std::endl;
+        if (createFolder(homepath_str + folder)){
+            std::cout << "Created successfully" << std::endl;
+        } else {
+            std::cout << "Folder already exists" << std::endl;
+        }
+    }
 }
 
 void simengine(){
