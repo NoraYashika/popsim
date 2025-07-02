@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QtGui/QCloseEvent>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QDialog>
 #include "mainwindow.ui.h"
@@ -37,4 +38,6 @@ class MainWindow : public QMainWindow {
         void savePSWA();
         void saveasPSWA();
 
+    protected:
+        void closeEvent(QCloseEvent* event) override;
 };
