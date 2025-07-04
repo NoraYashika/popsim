@@ -2,6 +2,7 @@
 
 ## Project Description
 A population simulator, made for simulating behaviour based on a random or user-set seed.
+Currently it is windows-only but this will change soon.
 
 ## Roadmap
 - [x] Build System using CMake
