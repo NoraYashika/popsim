@@ -12,13 +12,13 @@ Currently it is windows-only but this will change soon.
     - [x] fs.hpp (Filesystem)
     - [x] rng.hpp (random number generator)
     - [ ] math.hpp (math utility header)
-    - [ ] types.hpp (diverse useful types)
+    - [x] types.hpp (diverse useful types)
         - [x] `Interval`
-        - [ ] Vectors
-            - [ ] `Vec2`
-            - [ ] `Vec3`
+        - [x] Vectors
+            - [x] `Vec2`
+            - [x] `Vec3`
 
-    - [ ] encoders
+    - [x] encoders
         - [x] SHA256 en-/decoder
 
 - [ ] external libraries/headers

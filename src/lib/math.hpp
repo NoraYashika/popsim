@@ -37,4 +37,50 @@ namespace Functions{
             return std::make_pair(mean - delta, mean + delta);
         }
     };
+
+    inline float sigmoid(float x){
+        return 1.0f / (1.0f + std::exp(-x));
+    }
 };
+
+namespace LinAlg {
+    template <typename T>
+    float distance(const Vec2<T>& a, const Vec2<T>& b){
+        return std::sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+    }
+
+    template <typename T>
+    float distance_squared(const Vec2<T>& a, const Vec2<T>& b){
+        return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+    }
+}
+
+// Clamp functions
+template <typename T>
+T clamp(T val, T min_val, T max_val){
+    return std::max(min_val, std::min(val, max_val));
+}
+
+template <typename T>
+T clamp(T val, Interval<T> interval){
+    return std::max(interval.min, std::min(val, interval.max));
+}
+
+// Linear interpolation
+template <typename T>
+T lerp(T a, T b, float t){
+    return a + (b - a) * t;
+}
+
+// Map/Remap Range
+template <typename T>
+T remap(T value, T in_min, T in_max, T out_min, T out_max){
+    T t = (value - in_min) / (in_max - in_min);
+    return out_min + t * (out_max - out_min);
+}
+
+template <typename T>
+T remap(T value, Interval<T> in_interval, Interval<T> out_interval){
+    T t = (value - in_interval.min) / (in_interval.max - in_interval.min);
+    return out_interval.min + t * (out_interval.max - out_interval.min);
+}
