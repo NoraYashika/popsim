@@ -25,7 +25,16 @@ file(GLOB_RECURSE SOURCES
     src/*.ui
 )
 
-add_executable(popsim ${SOURCES})
+# put in the resources
+if(WIN32)
+    enable_language(RC)
+    set(ICON_SRC "${CMAKE_CURRENT_SOURCE_DIR}/resources/resources.rc.in")
+    set(ICON_OUT "${CMAKE_CURRENT_BINARY_DIR}/resources.rc")
+    configure_file(${ICON_SRC} ${ICON_OUT} @ONLY)
+    set(APP_ICON_RESOURCE_WINDOWS ${ICON_OUT})
+endif()
+
+add_executable(popsim ${SOURCES} ${APP_ICON_RESOURCE_WINDOWS})
 
 # Link Libraries
 target_link_libraries(popsim PRIVATE

@@ -3,6 +3,7 @@
 
 #include <QtGui/QCloseEvent>
 #include <QtGui/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QMessageBox>
 
@@ -10,6 +11,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/icons8-simulation-48.ico"));
 
     // connect buttons
     connect(ui->btn_advance_tick        , &QPushButton::clicked  , this, &MainWindow::advanceTick      );
@@ -22,8 +24,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->btn_showDetails         , &QPushButton::clicked  , this, &MainWindow::EOV_showDetails  );
 
     // Connect actions
-    connect(ui->actionSave_Model        , &QAction    ::triggered, this, &MainWindow::savePSWA         );
-    connect(ui->actionClose_Simulation  , &QAction    ::triggered, this, [this]{this->close();});
+    connect(ui->actionSave_Model       , &QAction ::triggered, this, &            MainWindow::savePSWA );
+    connect(ui->actionClose_Simulation , &QAction ::triggered, this, [this]{this->close     ();}       );
 }
 
 MainWindow::~MainWindow(){
