@@ -21,10 +21,10 @@ Currently it is windows-only but this will change soon.
     - [x] encoders
         - [x] SHA256 en-/decoder
 
-- [ ] external libraries/headers
+- [x] external libraries/headers
     - [x] `nlohmann::json`
     - [x] `glad`
-    - [ ] `glfw`
+    - [x] `glfw`
 
 - [ ] Core Setup (in `lib/core`)
     - [ ] Set up `simengine()` as the simulations core and main calculation system (thread 1)

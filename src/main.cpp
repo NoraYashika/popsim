@@ -8,6 +8,8 @@
 #include <string>
 #include <thread>
 
+#include "extern/GLFW/glfw3.h"
+
 #include "lib/fs.hpp"
 #include "lib/rng.hpp"
 #include "lib/ui/windows/MainWindow.hpp"

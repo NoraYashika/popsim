@@ -10,6 +10,11 @@ struct Date {
     unsigned int y;
 };
 
+struct SimContext {
+    int currentTick;
+    float deltaTime;
+};
+
 // Numeric Intervals
 template<typename T>
 struct Interval {
