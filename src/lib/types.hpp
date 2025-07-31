@@ -2,13 +2,46 @@
 
 #include <cmath>
 #include <iostream>
+
+#include <QtCore/QDate>
+
 #include "../extern/nlohmann/json.hpp"
+
+enum class Month {
+    JAN = 1,
+    FEB,
+    MAR,
+    APR,
+    MAY,
+    JUN,
+    JUL,
+    AUG,
+    SEP,
+    OCT,
+    NOV,
+    DEC
+};
 
 struct Date {
     unsigned int d;
     unsigned int m;
     unsigned int y;
+
+    Date operator+(const Date& other) const {return { d + other.d, m + other.m, y + other.y }; }
+    Date operator-(const Date& other) const {return { d - other.d, m - other.m, y - other.y }; }
 };
+
+inline Date toDate(const QDate& qdate){
+    return Date {
+        static_cast<unsigned int>(qdate.day()),
+        static_cast<unsigned int>(qdate.month()),
+        static_cast<unsigned int>(qdate.year())
+    };
+}
+
+inline QDate toQDate(const Date& date){
+    return QDate(static_cast<int>(date.y), static_cast<int>(date.m), static_cast<int>(date.d));
+}
 
 struct SimContext {
     int currentTick;
@@ -76,7 +109,6 @@ namespace nlohmann {
 }
 
 // 3 Dimensional
-
 template <typename T = float>
 struct Vec3 {
     T x{}, y{}, z{};

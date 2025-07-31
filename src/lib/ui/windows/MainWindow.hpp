@@ -3,21 +3,26 @@
 #include <QtGui/QCloseEvent>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QDialog>
+#include <memory>
+#include <vector>
+
 #include "mainwindow.ui.h"
+#include "../../../core/simengine.hpp"
+#include "../../../core/event.hpp"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
     public:
-        explicit MainWindow(QWidget *parent = nullptr);
+        explicit MainWindow(core::Engine* engine, std::vector<std::unique_ptr<Event>>* event_queue, QWidget *parent = nullptr);
         ~MainWindow();
 
     private:
         Ui::MainWindow *ui;
+        core::Engine* engine;
 
     private slots:
         // buttons
         // Simulation control
-        void advanceTick();
         void inspectWorld();
         void autoAdvance();
         void pauseAutoAdvance();

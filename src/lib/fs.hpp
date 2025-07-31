@@ -7,7 +7,9 @@ namespace fs = boost::filesystem;
 
 bool createFolder(const std::string& pathStr);
 
-fs::path getHomePath();
+inline fs::path getHomePath(){
+    return boost::filesystem::current_path();
+}
 
 namespace PSWA {
     void createArchive(const fs::path& source, const std::string& target);

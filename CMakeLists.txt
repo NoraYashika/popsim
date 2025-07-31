@@ -44,4 +44,8 @@ target_link_libraries(popsim PRIVATE
     Qt6::OpenGL
     Qt6::OpenGLWidgets
     Boost::filesystem
+    opengl32
 )
+
+file(COPY ${CMAKE_SOURCE_DIR}/resources/data DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY ${CMAKE_SOURCE_DIR}/resources/assets DESTINATION ${CMAKE_BINARY_DIR})

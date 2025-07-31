@@ -1,0 +1,16 @@
+{
+  "output": {
+    "verbose": false
+  },
+  "window": {
+    "size": {
+      "h": 1268,
+      "v": 876
+    },
+    "fullscreen": false
+  },
+  "ui": {
+    "enableTooltips": true,
+    "showStartupDialog": true
+  }
+}

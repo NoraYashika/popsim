@@ -8,13 +8,15 @@
 #include <QtWidgets/QMessageBox>
 
 #include "../../fs.hpp"
+#include "../../../core/simengine.hpp"
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
+MainWindow::MainWindow(core::Engine* engine, std::vector<std::unique_ptr<Event>>* event_queue, QWidget *parent) : QMainWindow(parent), engine(engine), ui(new Ui::MainWindow){
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/icons8-simulation-48.ico"));
 
     // connect buttons
-    connect(ui->btn_advance_tick        , &QPushButton::clicked  , this, &MainWindow::advanceTick      );
+    connect(ui->btn_advance_tick        , &QPushButton::clicked  , this, [this, engine](){ engine->tick(); });
+    
     connect(ui->btn_inspect_world       , &QPushButton::clicked  , this, &MainWindow::inspectWorld     );
     connect(ui->btn_pause_autoadvance   , &QPushButton::clicked  , this, &MainWindow::pauseAutoAdvance );
     connect(ui->btn_population_inspect  , &QPushButton::clicked  , this, &MainWindow::POV_inspect      );
@@ -33,10 +35,6 @@ MainWindow::~MainWindow(){
 }
 
 // function definitions
-void MainWindow::advanceTick(){
-    std::cout << "advance Tick" << std::endl;
-}
-
 void MainWindow::inspectWorld(){
     std::cout << "inspect World" << std::endl;
 }

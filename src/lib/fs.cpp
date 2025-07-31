@@ -16,10 +16,6 @@ bool createFolder(const std::string& pathStr){
     return false;
 }
 
-fs::path getHomePath(){
-    return boost::filesystem::current_path();
-}
-
 void PSWA::createArchive(const fs::path& source, const std::string& target){
     std::ofstream out(target, std::ios::binary);
     if (!out) throw std::runtime_error("Failed to open archive for writing.");
